@@ -92,6 +92,25 @@ function Arch()
           if (( "$TB" == "s" || "$TB" == "S" )); then
               yaourt -S tor-browser
           fi
+          
+          #Pergunta ao usuario se deseja instalar o DNSCrypt-Proxy e se sim, o instala
+      clear
+      printf "\n::Gostaria de instalar o DNSCrypt-Proxy [s/n]?\n"
+      Sinal
+      read P
+          if (( "$P" == "s" || "$P" == "S" )); then
+              sudo pacman -S dnscrypt-proxy
+fi
+
+#Pergunta ao usuario se deseja iniciar o DNSCrypt-Proxy juntamente com o sistema e se sim, o instala
+      clear
+      printf "\n::Gostaria de iniciar o DNSCrypt-Proxy juntamente com o sistema [s/n]?\n"
+      Sinal
+      read P
+          if (( "$P" == "s" || "$P" == "S" )); then
+              sudo systemctl enable dnscrypt-proxy
+fi
+
 }
 
 
