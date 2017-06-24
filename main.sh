@@ -79,6 +79,9 @@ function Debian()
       #Sincroniza com os repositorios/Atualiza os pacotes/Atualiza a distribuição/Remove pacotes desnecessarios
       sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y
 
+      #Instalando programas via PPA no Debian
+      mv add-apt-repository.sh /usr/sbin/ && chmod +x /usr/sbin/add-apt-repository.sh
+
       #Interface gráfica para o IPTables
       sudo apt-get install fwbuilder
 
