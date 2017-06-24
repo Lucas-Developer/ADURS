@@ -111,6 +111,15 @@ fi
               sudo systemctl enable dnscrypt-proxy
 fi
 
+#Pergunta ao usuario se deseja instalar o GPA e se sim, o instala.
+      clear
+      printf "\n::Gostaria de instalar o GPA [s/n]?\n"
+      Sinal
+      read N
+          if (( "$N" == "s" || "$N" == "S")); then
+              sudo pacman -S gpa
+fi
+
 }
 
 
