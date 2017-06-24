@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#Função para imprimir o Titulo do programa em ASCII ART
 function Nome()
 {
     printf "  █████╗ ██████╗ ██╗   ██╗██████╗ ███████╗\n"
@@ -23,13 +24,37 @@ function Sinal()
   printf "\n-> "
 }
 
+function ArchLogo()
+{
+    printf "              +\n"
+    printf "              #\n"
+    printf "             ###\n"
+    printf "            #####\n"
+    printf "           ######\n"
+    printf "          ; ######;\n"
+    printf "         +##.#####\n"
+    printf "        +##########\n"
+    printf "       #############;\n"
+    printf "      ###############+\n"
+    printf "     #######   #######\n"
+    printf "   .######;     ;###;#.\n"
+    printf "  .#######;     ;#####.\n"
+    printf "  #########.   .########\n"
+    printf " ######'           '######\n"
+    printf ";####                 ####;\n"
+    printf "##'                     '##\n"
+    printf "#'                         #\n"
+}
+
 #Se a distribuição for Arch Linux ou baseadas
 #Criado por Wrench | https://github.com/WrenchCoder
 function Arch()
 {
       clear
-      printf "WBot: Então voce usa Arch, boa escolha!\n"
-      printf "WBot: Irei atualiza-lo para você\n"
+      ArchLogo
+      Linha
+      printf "ADURSBot: Então voce usa Arch, boa escolha!\n"
+      printf "ADURSBot: Irei atualiza-lo para você\n"
       sudo pacman -Syyuu #Atualização completa do sistema
 
       #Pergunta ao usuario se deseja instalar o Nmap e se sim, o instala.
@@ -68,6 +93,7 @@ function Arch()
               yaourt -S tor-browser
           fi
 }
+
 
 #Se a distribuição for Debian ou baseadas
 #Feito por Lucas | https://github.com/Lucas-Developer
@@ -124,8 +150,8 @@ function Debian()
 function Distro()
 {
   Linha
-  printf "WBot: Olá $USER, como esta você? xD\n"
-  printf "WBot: Me diga qual distribuição você esta usando nesse momento, por favor?\n"
+  printf "ADURSBot: Olá $USER, como esta você? xD\n"
+  printf "ADURSBot: Me diga qual distribuição você esta usando nesse momento, por favor?\n"
   Linha
 
   printf "1.Arch Linux ou baseadas\n"
