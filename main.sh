@@ -92,6 +92,15 @@ function Arch()
           if (( "$TB" == "s" || "$TB" == "S" )); then
               yaourt -S tor-browser
           fi
+          
+          #Pergunta ao usuario se deseja instalar a ZeroNet e se sim, o instala
+      clear
+      printf "\n::Gostaria de instalar a ZeroNet [s/n]?\n"
+      Sinal
+      read TB
+          if (( "$TB" == "s" || "$TB" == "S" )); then
+              git clone https://aur.archlinux.org/zeronet.git && cd zeronet-git && makepkg -srci && systemctl start zeronet
+          fi
 }
 
 
@@ -107,6 +116,9 @@ function Debian()
 
       #Instalando programas via PPA no Debian
       mv add-apt-repository.sh /usr/sbin/ && chmod +x /usr/sbin/add-apt-repository.sh
+
+      #Sites abertos, grátis e sem censura, usando criptografia Bitcoin e a rede BitTorrent
+      sudo apt-get update && sudo apt-get install msgpack-python python-gevent && wget https://github.com/HelloZeroNet/ZeroNet/archive/master.tar.gz && tar xvpfz master.tar.gz
 
       #Interface gráfica para o IPTables
       sudo apt-get install fwbuilder
